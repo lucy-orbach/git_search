@@ -16,7 +16,7 @@
   "homepage": "https://github.com/lucy-orbach/react-boilerplate#readme",
   "scripts": {
     "build": "webpack  --config webpack.config.prod.js",
-    "dev": "webpack-dev-server --open 'Google Chrome' --config webpack.config.dev.js",
+    "dev": "webpack-dev-server  --config webpack.config.dev.js",
     "test": "jest",
     "format": "pretty-quick",
     "lint": "eslint ./"
@@ -63,6 +63,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
-    "react-hot-loader": "^4.7.2"
+    "react-hot-loader": "^4.7.2",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   }
 }
