@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import  {connect } from 'react-redux';
 import styled from 'styled-components';
-import  { loadUsers} from 'src/actions/userActions';
+import { loadUsers, loadUsersError, loadUsersSuccess } from 'src/actions/userActions';
 import Button from 'src/components/formElements/Button';
+import InputGroup from 'src/components/formElements/InputGroup';
+
 
 
 const StyledComponent = styled.aside`
@@ -12,18 +14,24 @@ const StyledComponent = styled.aside`
 
 const AsideContainer = props => {
   let [ value, setValue ] = useState('');
-  const handleInputChange = ({target: {value}, ...e}) => {
-    console.log(value);
-    setValue(value);
+
+  const handleInputChange = ({target}) => {
+    if (target.value !== value) setValue(target.value);
   };
+
+  const handleSubmit = () => {
+    props.loadUsers(value);
+  };
+
   return (
       <StyledComponent>
-        <h1>Hello W</h1>
-        <input type="text"
-               value={value}
-               placeholder="Enter username"
-               onChange={handleInputChange} />
-        <Button disabled={false} onClick={props.loadUsers}>Get Users</Button>
+        <h1>Get git users:</h1>
+        <InputGroup type="text"
+                    label="Username"
+                    name="username"
+                    value={value}
+                    onChange={handleInputChange} />
+        <Button disabled={false} onClick={handleSubmit} data-test="hello">Get Users</Button>
       </StyledComponent>
     );
 

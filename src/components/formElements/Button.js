@@ -7,11 +7,11 @@ const Button = styled.button`
 	border-width: 2px;
 	border-style: solid;
 	border-color: ${ props => props.diasabled
-  ? props.theme.gray
-  : props.theme.orange};
+    ? props.theme.gray
+    : props.theme.orange};
   color: ${ props => props.diasabled
-   ? props.theme.gray
-   : props.theme.orange};
+     ? props.theme.gray
+     : props.theme.orange};
 	text-transform: uppercase;
 	letter-spacing: 0.25em;
 	transition: all 0.3s ease-in-out;
@@ -24,12 +24,5 @@ const Button = styled.button`
     ? props.theme.gray
     : props.theme.pink};
 `;
-
-//button:focus,
-// button:hover {
-// 	background-color: black;
-// 	color: #fff;
-//
-// }
 
 export default Button;

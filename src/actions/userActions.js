@@ -1,15 +1,26 @@
 import Types from 'src/actions/actionTypes';
 
+
+
+
 export const loadUsers = name => dispatch => {
-  fetch('https://api.github.com/search/users?q=lucy&page=2&per_page=10')
+  fetch(`https://api.github.com/search/users?q=${name}&page=2&per_page=10`)
     .then( response => response.json() )
-    .then( data => dispatch(loadUsersSuccess(data)))
+    .then( data => {
+      dispatch(loadUsersSuccess(data));
+      dispatch( setUsername(name))
+    })
     .catch(error => dispatch(loadUsersError(error)))
 };
 
+export function setUsername(name) {
+  return {
+    type: Types.SET_USER,
+    payload: name
+  }
+};
+
 export function loadUsersSuccess(data) {
-  console.log('loadUSERS', data);
-  console.log(Types.LOAD_USERS_SUCCESS);
   return {
     type: Types.LOAD_USERS_SUCCESS,
     payload: data

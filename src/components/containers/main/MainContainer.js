@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const MainContainer = props => {
+const MainContainer = ({name, ...props}) => {
   return (
-    <main>Data goes here</main>
+    <main>
+      <h1>Git Search</h1>
+      {  name && <h2>{`Git users with name: ${name}`}</h2>}
+    </main>
   );
 };
 
