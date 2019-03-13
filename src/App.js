@@ -1,30 +1,39 @@
 import React, { useState } from 'react';
 import { hot } from 'react-hot-loader';
-import 'src/app.css';
-// import Warning from 'src/warnings/Warning';
-const Warning = React.lazy(() => import('./components/warnings/Warning'));
+import AsideContainer  from 'src/components/containers/aside/AsideContainer';
+import MainContainer from 'src/components/containers/main/MainContainer';
+import styled, { ThemeProvider } from 'styled-components';
+import GlobalStyle from 'src/styles/globalStyles';
+import { colorTheme } from 'src/styles/themes';
 
-// top-level React component
+const AppContainer = styled.div`
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 100vh;
+`;
+
 const App = () => {
-  let [counter, setCounter] = useState(0);
   return (
-    <div className="app">
-      <h1>Hello World!</h1>
-      <h2>{`Counter: ${counter}`}</h2>
-      <div className="btn-container">
-        <button onClick={() => setCounter(counter + 1)}>Add more!</button>
-        <button onClick={() => setCounter(0)}>Reset</button>
-      </div>
-      { counter > 10 && (
-        <React.Suspense fallback={'oops'}>
-          <Warning />
-        </React.Suspense>
-      )}
-    </div>
+    <ThemeProvider theme={ colorTheme }>
+      <React.Fragment>
+        <GlobalStyle />
+        <AppContainer>
+              <AsideContainer />
+              <MainContainer />
+        </AppContainer>
+      </React.Fragment>
+    </ThemeProvider>
+
   );
 };
-//const hotFunction = hot(module);
-// export default hotFunction(App);
-export default hot(module)(App);
 
-// keyword: UNSAFE_deprecatedCycleMethod
+
+
+
+
+
+
+
+
+
+export default hot(module)(App);

@@ -14,7 +14,8 @@
   "plugins": [
     "react-hot-loader/babel", // injects component chnges without reloading/changing state
     "@babel/plugin-proposal-class-properties", // for new proposed syntax
-    "@babel/plugin-syntax-dynamic-import" //React.lazy
+    "@babel/plugin-syntax-dynamic-import", //React.lazy
+    "babel-plugin-styled-components"
   ],
   "env": {
     "test": {

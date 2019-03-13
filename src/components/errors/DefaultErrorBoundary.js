@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class DefaultErrorBoundry extends React.Component {
+export default class DefaultErrorBoundary extends React.Component {
   state = {
     isError: false
   };
@@ -18,6 +18,6 @@ export default class DefaultErrorBoundry extends React.Component {
   }
 }
 
-DefaultErrorBoundry.propTypes = {
+DefaultErrorBoundary.propTypes = {
   children: PropTypes.object
 };
